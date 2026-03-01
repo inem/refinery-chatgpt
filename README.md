@@ -1,27 +1,27 @@
-# Refinery — Save ChatGPT Quotes
+# Refinery — Extract Value from ChatGPT
 
-Chrome extension to save, highlight, and organize quotes from ChatGPT conversations.
+Chrome extension to extract, highlight, and organize valuable fragments from ChatGPT conversations.
 
 ## The problem
 
-You have long ChatGPT conversations full of valuable insights — but they disappear into the scroll. You can't bookmark individual messages, and copy-pasting loses context.
+Your best ChatGPT conversations are long. The most valuable insights are buried in a stream of thousands of messages. You can't bookmark them, and copy-pasting loses context.
 
 ## How it works
 
 1. Open any ChatGPT conversation
-2. Select text in an assistant message
-3. Press **Cmd+Shift+S** (or Ctrl+Shift+S on Windows)
-4. Done — the text is highlighted and saved to your account
+2. Select valuable text in an assistant message
+3. Press **Cmd+Shift+E** (or Ctrl+Shift+E on Windows)
+4. Done — the fragment is highlighted and saved to your account
 
-Your quotes are highlighted in yellow with numbered badges. A navigation ribbon on the right lets you jump between saved quotes. When you revisit the conversation, highlights are restored automatically.
+Extracted fragments are highlighted in yellow with numbered badges. A navigation ribbon on the right lets you jump between them. When you revisit the conversation, highlights are restored automatically.
 
 ## Features
 
-- **Cmd+Shift+S** to save selected text
+- **Cmd+Shift+E** to extract selected text
 - Yellow highlights with numbered badges
-- Quote navigator ribbon (right edge)
+- Fragment navigator ribbon (right edge)
 - Automatic conversation backups (full JSON, every 60s)
-- Sidebar badges showing quote counts per conversation
+- Sidebar badges showing extract counts per conversation
 - Cross-device sync via Google Sign-In
 
 ## Install
@@ -37,7 +37,7 @@ Your quotes are highlighted in yellow with numbered badges. A navigation ribbon 
 
 ## Privacy
 
-Your quotes are stored in a secure database (Supabase) with row-level security. No analytics, no tracking, no data sharing. See [privacy-policy.md](privacy-policy.md).
+Your extracts are stored in a secure database (Supabase) with row-level security. No analytics, no tracking, no data sharing. See [privacy-policy.md](privacy-policy.md).
 
 ## Related
 
