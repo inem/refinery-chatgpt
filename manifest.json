@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Refinery — Save ChatGPT Quotes",
+  "name": "Refinery — Extract Value from ChatGPT",
   "version": "1.0.0",
-  "description": "Select text in ChatGPT, press Cmd+Shift+E to extract. Your quotes are saved, highlighted, and organized.",
+  "description": "Select valuable text in ChatGPT, press Cmd+Shift+E. Fragments are highlighted, saved, and organized.",
   "permissions": [
     "storage",
     "activeTab",
@@ -49,7 +49,7 @@
         "default": "Ctrl+Shift+E",
         "mac": "Command+Shift+E"
       },
-      "description": "Save selected text as quote"
+      "description": "Extract selected text"
     }
   }
 }
