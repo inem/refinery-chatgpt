@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .header-icon {
+      font-size: 24px;
+    }
+    .header-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111;
+    }
+    .stats {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #374151;
+    }
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+    .logged-out {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .logged-out p {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .user-email {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 12px;
+      padding: 8px;
+      background: #f9fafb;
+      border-radius: 6px;
+    }
+    .shortcut {
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    .shortcut kbd {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .loading {
+      text-align: center;
+      color: #888;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="header-icon">📑</span>
+    <span class="header-title">ChatGPT Quotes</span>
+  </div>
+  <div id="content">
+    <div class="loading">Loading...</div>
+  </div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
