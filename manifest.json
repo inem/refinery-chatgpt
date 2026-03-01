@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Refinery — Save ChatGPT Quotes",
   "version": "1.0.0",
-  "description": "Select text in ChatGPT, press Cmd+Shift+S. Your quotes are saved, highlighted, and organized.",
+  "description": "Select text in ChatGPT, press Cmd+Shift+E to extract. Your quotes are saved, highlighted, and organized.",
   "permissions": [
     "storage",
     "activeTab",
@@ -46,8 +46,8 @@
   "commands": {
     "save-quote": {
       "suggested_key": {
-        "default": "Ctrl+Shift+S",
-        "mac": "Command+Shift+S"
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
       },
       "description": "Save selected text as quote"
     }

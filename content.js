@@ -165,10 +165,10 @@ function setupSaveInPopup() {
   });
 }
 
-// Setup keyboard shortcut (Cmd/Ctrl+Shift+S to save selection)
+// Setup keyboard shortcut (Cmd/Ctrl+Shift+E to extract selection)
 function setupKeyboardShortcut() {
   document.addEventListener('keydown', async (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 's') {
+    if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
       e.preventDefault();
 
       const selection = window.getSelection();
