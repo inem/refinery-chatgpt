@@ -9,7 +9,7 @@ async function render() {
   if (!user) {
     content.innerHTML = `
       <div class="logged-out">
-        <p>Sign in to start saving quotes from ChatGPT</p>
+        <p>Sign in to start clipping from ChatGPT</p>
         <button class="btn" id="login">Sign in with Google</button>
       </div>
     `;
@@ -22,11 +22,11 @@ async function render() {
 
   content.innerHTML = `
     <div class="user-email">${user.email}</div>
-    <div class="stats">${stats.quotes} quotes from ${stats.conversations} conversations</div>
+    <div class="stats">${stats.quotes} clips from ${stats.conversations} conversations</div>
     <button class="btn" id="open-board">Open Board</button>
     <button class="btn btn-secondary" id="logout">Sign out</button>
     <div class="shortcut">
-      Tip: <kbd>Cmd+Shift+S</kbd> to save selected text
+      Tip: <kbd>Cmd+Shift+E</kbd> to clip selected text
     </div>
   `;
 

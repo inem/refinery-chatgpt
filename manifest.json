@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Refinery — Extract Value from ChatGPT",
+  "name": "ChatGPT Clipper",
   "version": "1.0.0",
-  "description": "Select valuable text in ChatGPT, press Cmd+Shift+E. Fragments are highlighted, saved, and organized.",
+  "description": "Clip valuable fragments from ChatGPT conversations. Cmd+Shift+E to save, highlights persist across sessions.",
   "permissions": [
     "storage",
     "activeTab",
