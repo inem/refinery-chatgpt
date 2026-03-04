@@ -864,26 +864,22 @@ function parseConversationMessages() {
   return messages;
 }
 
-// Add "Dump" button to top header using ChatGPTUI library
-function addDumpButton() {
-  ChatGPTUI.addTopHeaderButton({
-    id: 'refinery-dump',
-    icon: '<span style="font-size: 160%; position: relative; top: -1px;">⊚</span>',
-    label: 'Dump',
-    title: 'Save conversation dump',
-    onClick: async (e) => {
-      const btn = e.target.closest('button');
-      const labelEl = btn.querySelector('span:last-child');
-      const originalLabel = labelEl?.textContent;
-      if (labelEl) labelEl.textContent = 'Saving...';
-      btn.disabled = true;
+// Add "Sync to Clipper" item to conversation context menu (... button)
+function addSyncMenuItem() {
+  ChatGPTUI.addHeaderMenuItem({
+    id: 'clipper-sync',
+    icon: '🔄',
+    label: 'Sync to Clipper',
+    onClick: async ({ menuEl }) => {
+      // Close the menu
+      if (menuEl) document.body.click();
+
+      showToast('Syncing...');
 
       const messages = parseConversationMessages();
 
       if (messages.length === 0) {
-        showToast('No messages to save', true);
-        btn.disabled = false;
-        if (labelEl) labelEl.textContent = originalLabel;
+        showToast('No messages to sync', true);
         return;
       }
 
@@ -898,16 +894,13 @@ function addDumpButton() {
 
       if (response.success) {
         if (response.skipped) {
-          showToast(`No changes since #${response.version}`);
+          showToast(`Already synced (#${response.version})`);
         } else {
-          showToast(`Dump saved! (#${response.version}, ${messages.length} messages)`);
+          showToast(`Synced! (#${response.version}, ${messages.length} msgs)`);
         }
       } else {
-        showToast(response.error || 'Failed to save', true);
+        showToast(response.error || 'Sync failed', true);
       }
-
-      btn.disabled = false;
-      if (labelEl) labelEl.textContent = originalLabel;
     },
   });
 }
@@ -1003,16 +996,16 @@ function startAutoDumpTimer() {
 
 // Initialize dump button and watch for SPA navigation (button gets removed when ChatGPT changes conversation)
 let lastUrl = window.location.href;
-function initDumpButton() {
+function initUI() {
   addRefineButton();
-  addDumpButton();
+  addSyncMenuItem();
 }
 
 function watchForNavigation() {
   // Check periodically if URL changed or button disappeared
   setInterval(() => {
     const currentUrl = window.location.href;
-    const buttonExists = document.querySelector('[data-cgq-id="refinery-dump"]');
+    const buttonExists = document.querySelector('[data-cgq-id="clipper-sync"]');
     const shareExists = document.querySelector('[data-testid="share-chat-button"]');
 
     if (currentUrl !== lastUrl) {
@@ -1026,7 +1019,7 @@ function watchForNavigation() {
       refinerySimpleData = null; // clear stale data from previous conversation
       setTimeout(async () => {
         addRefineButton();
-        addDumpButton();
+        addSyncMenuItem();
         addSidebarFilterToggle();
         await loadExistingQuotes();
         updateQuoteNavigator();
@@ -1037,7 +1030,7 @@ function watchForNavigation() {
       // Re-add UI elements if they disappeared
       if (!buttonExists && shareExists) {
         addRefineButton();
-        addDumpButton();
+        addSyncMenuItem();
       }
       const filterToggleExists = document.querySelector('[data-cgq-id="filter-toggle"]');
       if (!filterToggleExists) {
@@ -1048,7 +1041,7 @@ function watchForNavigation() {
 }
 
 setTimeout(() => {
-  initDumpButton();
+  initUI();
   watchForNavigation();
   startAutoDumpTimer();
 }, 500);
